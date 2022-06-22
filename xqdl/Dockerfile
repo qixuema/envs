@@ -34,8 +34,8 @@ COPY .ssh /root/.ssh
 # config proxychains
 COPY proxychains.conf /etc/proxychains.conf
 # config vim
-#RUN proxychains git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
-COPY vimrc ~/.vim_runtime
+RUN proxychains git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+# COPY vimrc ~/.vim_runtime
 #RUN sh ~/.vim_runtime/install_awesome_vimrc.sh
 # config jupyter
 COPY .jupyter ~/.jupyter

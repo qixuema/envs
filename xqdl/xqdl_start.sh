@@ -1,5 +1,5 @@
 sudo docker run --gpus all -it \
---name=xgdl_cu113 \
+--name=xqdl_cu113 \
 -p 1949:22   \
 -p 1950:5901 \
 -p 1951:3389 \
@@ -9,8 +9,8 @@ sudo docker run --gpus all -it \
 -p 1955:6006 \
 --ipc=host   \
 --cap-add NET_ADMIN --device /dev/net/tun \
--v /media/data/xingguang:/studio \
-xgdl:cuda11.3 \
+-v /media/data/xueqi:/studio \
+xqdl:cuda11.3 \
 bash
 
 #-v qinglong:/studio \

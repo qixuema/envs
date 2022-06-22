@@ -1,5 +1,5 @@
 sudo docker run -it --gpus all \
---name=xgdl_test \
+--name=xqdl_test \
 pytorch/pytorch:1.8.1-cuda11.1-cudnn8-devel
 bash
 
