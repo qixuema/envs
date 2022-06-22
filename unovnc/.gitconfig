@@ -1,0 +1,7 @@
+[user]
+	name = Xingguang Yan
+	email = qheldiv@gmail.com
+[alias]
+	adog = log --all --decorate --oneline --graph
+[credential]
+    helper = cache --timeout 30000
