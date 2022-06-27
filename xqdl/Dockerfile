@@ -5,7 +5,7 @@ FROM pytorch/pytorch:1.11.0-cuda11.3-cudnn8-devel
 WORKDIR /studio
 
 # change repo for China
-COPY pip.conf ~/.config/pip/pip.conf
+COPY pip.conf /root/.config/pip/pip.conf
 COPY apt/sources.list /etc/apt/sources.list
 
 # change timezone to shanghai
@@ -38,14 +38,14 @@ COPY proxychains.conf /etc/proxychains.conf
 # COPY vimrc ~/.vim_runtime
 #RUN sh ~/.vim_runtime/install_awesome_vimrc.sh
 # config jupyter
-COPY .jupyter ~/.jupyter
+COPY .jupyter /root/.jupyter
 # config conda
-COPY .condarc ~/.condarc
+COPY .condarc /root/.condarc
 RUN conda clean -i
 RUN conda init bash
 
 # create links
-RUN ln -s /studio ~/studio
+RUN ln -s /studio /root/studio
 RUN ln -s /studio /smartscan
 
 # install jupyterlab
@@ -53,4 +53,4 @@ RUN conda install -c conda-forge jupyterlab nb_conda_kernels mamba --yes
 
 
 # config bash
-COPY .bash_aliases ~/.bash_aliases
+COPY .bash_aliases /root/.bash_aliases
