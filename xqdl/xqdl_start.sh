@@ -1,16 +1,11 @@
 sudo docker run --gpus all -it \
 --name=xqdl_cu113 \
--p 1949:22   \
--p 1950:5901 \
--p 1951:3389 \
--p 1952:443  \
--p 1953:80   \
--p 1954:8888 \
--p 1955:6006 \
+-p 9022:22   \
+-p 9080:80   \
 --ipc=host   \
 --cap-add NET_ADMIN --device /dev/net/tun \
 -v /media/data/xueqi:/studio \
-xqdl:cuda11.3 \
+xqdl:latest \
 bash
 
 #-v qinglong:/studio \

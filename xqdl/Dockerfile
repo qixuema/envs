@@ -34,7 +34,7 @@ COPY .ssh /root/.ssh
 # config proxychains
 COPY proxychains.conf /etc/proxychains.conf
 # config vim
-RUN proxychains git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+# RUN proxychains git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
 # COPY vimrc ~/.vim_runtime
 #RUN sh ~/.vim_runtime/install_awesome_vimrc.sh
 # config jupyter
@@ -49,8 +49,7 @@ RUN ln -s /studio ~/studio
 RUN ln -s /studio /smartscan
 
 # install jupyterlab
-#RUN conda install -c conda-forge jupyterlab --yes
-#RUN conda install nb_conda_kernels --yes
+RUN conda install -c conda-forge jupyterlab nb_conda_kernels mamba --yes
 
 
 # config bash
