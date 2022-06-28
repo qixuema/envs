@@ -2,7 +2,7 @@
 sudo apt-get remove docker docker-engine docker.io containerd runc
 
 # Uninstall Docker Engine
-sudo apt-get purge docker-ce docker-ce-cli containerd.io docker-compose-plugin
+# sudo apt-get purge docker-ce docker-ce-cli containerd.io docker-compose-plugin
 # delete all images, containers, and volumes
 # sudo rm -rf /var/lib/docker
 # sudo rm -rf /var/lib/containerd
@@ -41,7 +41,7 @@ sudo mv /var/lib/docker /var/lib/docker_replaced
 sudo ln -s /media/data/dockerdata /var/lib/docker
 
 # Manage Docker as a non-root user
-sudo groupadd docker
-sudo usermod -aG docker xueqi
-newgrp docker 
-docker ps
+# sudo groupadd docker
+# sudo usermod -aG docker xueqi
+# newgrp docker 
+# docker ps
