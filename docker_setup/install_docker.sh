@@ -37,8 +37,8 @@ sudo systemctl restart docker
 
 sudo docker run --rm --gpus all nvidia/cuda:11.0-base nvidia-smi
 
-sudo mv /var/lib/docker /var/lib/docker_replaced
-sudo ln -s /media/data/dockerdata /var/lib/docker
+# sudo mv /var/lib/docker /var/lib/docker_replaced
+# sudo ln -s /media/data/dockerdata /var/lib/docker
 
 # Manage Docker as a non-root user
 # sudo groupadd docker

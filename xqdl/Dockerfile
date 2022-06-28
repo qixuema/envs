@@ -24,7 +24,11 @@ RUN apt-get install -y \
     tmux \
     vim \
     proxychains \
-    git 
+    git \
+    apt-utils
+
+# RUN apt-get install --assume-yes apt-utils
+
 
 #RUN mv /etc/apt/temp.sources.d /etc/apt/sources.list.d
 # config ssh
