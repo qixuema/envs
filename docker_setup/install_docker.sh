@@ -4,8 +4,8 @@ sudo apt-get remove docker docker-engine docker.io containerd runc
 # Uninstall Docker Engine
 sudo apt-get purge docker-ce docker-ce-cli containerd.io docker-compose-plugin
 # delete all images, containers, and volumes
-sudo rm -rf /var/lib/docker
-sudo rm -rf /var/lib/containerd
+# sudo rm -rf /var/lib/docker
+# sudo rm -rf /var/lib/containerd
 
 # install docker
 sudo apt-get update
