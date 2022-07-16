@@ -1,1 +1,11 @@
+## 首先在服务器物理机上配置ubuntu 和 安装docker工具
 
+## 其次，安装深度学习环境
+修改 Dockerfile 文件
+修改builder.sh 文件
+bash builder.sh 构建镜像
+修改 xqdl_start.sh 文件
+bash xqdl_start.sh 进入 container
+service ssh start 开启 ssh 服务
+passwd 修改 root 账户密码
+完事!
