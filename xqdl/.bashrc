@@ -13,8 +13,8 @@ HISTCONTROL=ignoredups:ignorespace
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+# HISTSIZE=1000
+# HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -115,3 +115,14 @@ act nnrecon
 
 export PATH="/usr/local/cuda/bin:$PATH"
 
+## >>> record history >>>
+HISTFILESIZE=4000            #默认保存命令是1000条，这里修改为4000条
+HISTSIZE=4000
+USER_IP=`who -u am i 2>/dev/null| awk '{print $NF}'|sed -e 's/[()]//g'` #取得登录客户端的IP
+if [ -z $USER_IP ]
+then
+  USER_IP=`hostname`
+fi
+HISTTIMEFORMAT="%F %T $USER_IP:`whoami` "     #设置新的显示history的格式
+export HISTTIMEFORMAT
+# <<< record history <<<
