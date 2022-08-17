@@ -50,7 +50,7 @@ RUN ln -s /studio /root/studio
 # config jupyter
 COPY .jupyter /root/.jupyter
 # install jupyterlab
-RUN conda install -c conda-forge jupyterlab nb_conda_kernels mamba --yes
+# RUN conda install -c conda-forge jupyterlab nb_conda_kernels mamba --yes
 
 
 # config bash
