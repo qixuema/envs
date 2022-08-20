@@ -5,4 +5,4 @@
 `setup_ubuntu.sh` 是用来安装一些常用的小工具，如 git, proxychains, tmux 等等；
 ## 3. 
 `create_new_docker_server.sh` 是用来通过 docker 的方式来创建新服务器的，里面需要修改的内容包括 <username>, 以及三个端口号 12222, 14000, 15000;
-另外，在使用 docker 创建新的虚拟服务器之前，需要创建以下文件夹，用来存放用户的重要数据 `/mnt/d/<hostname>` ;
+另外，需要注意的是，在使用 docker 创建新的虚拟服务器之前，需要创建以下文件夹，用来存放用户的重要数据 `/mnt/d/<hostname>` ;

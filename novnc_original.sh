@@ -1,6 +1,0 @@
-sudo docker run \
---name=novnc \
--p 5555:80 \
--p 5909:5900 \
--v /studio/:/studio \
-dorowu/ubuntu-desktop-lxde-vnc:latest
