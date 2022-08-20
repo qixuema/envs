@@ -1,5 +1,6 @@
 sudo docker run --gpus all -it \
 --name=xqdl_cu113 \
+--hostname cu113 \
 -p 9022:22   \
 -p 9080:80   \
 --ipc=host   \
