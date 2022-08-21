@@ -1,24 +1,47 @@
-## 首先在服务器物理机上配置ubuntu 和 安装docker工具
+# docker_setup
+`docker_setup` 里面的文件分为两部分，一部分是用于在物理机上新建一个开发环境，那么就需要对物理机的 ubuntu 系统安装一些小工具，以及安装必要的 docker 工具，包括 `docker-ce` 以及 `nvidia-docker2` ；
 
-安装完docker之后，可以将当前用户将入到docker组中，这样以后可以直接使用docker命令，不用每次都sudo，只需执行下面三行命令，记得把xueqi修改为当前用户名字
+另外一部分是在此基础上，新建一个 ubuntu 系统容器，用于给新用户开新账号；
+
+安装完 `docker` 之后，可以将 `当前用户` 将入到 `docker组` 中，这样以后可以直接使用docker命令，不用每次都sudo，只需执行下面三行命令：
 ```
 sudo groupadd docker
 ```
 ```
-sudo usermod -aG docker xueqi
+sudo usermod -aG docker 用户名
 ```
 ```
 newgrp docker 
 ```
-这样就可以了
 
+# xqdl
+在服务器物理机上安装 ubuntu 常用小工具以及 docker 工具之后，我们就可以进入到 `xqdl` 文件夹里了；
 
-## 其次，安装深度学习环境
-修改 Dockerfile 文件，主要是修改pytorch版本基于cuda版本
-修改build.sh 文件，主要是修改要生成的image 的名字
-bash build.sh 构建镜像
-修改 xqdl_start.sh 文件，主要是修改要创建的container的名字端口号，以及是基于哪一个image来创建的
-bash xqdl_start.sh 进入 container
-service ssh start 开启 ssh 服务
-passwd 修改 root 账户密码
+接下来我们安装深度学习开发环境；
+
+首先，修改 `Dockerfile` 文件，主要是修改第一行的 `pytorch` 版本，这个与 `cuda` 版本相关，即我们要首先确定 `cuda` 的版本是多少，具体修改成什么请查询 `dockerhub` ;
+
+其次，修改 `build.sh` 文件，主要是修改要生成的 `image` 的名字
+
+然后，执行：
+```
+bash build.sh
+```
+构建镜像；
+
+接着，修改 `xqdl_start.sh` 文件，主要是修改要创建的 `container` 的名字、分配的端口号，以及是基于哪一个 `image` 来创建的，然后执行下面命令：
+```
+bash xqdl_start.sh
+```
+
+进入 container 之后，执行：
+```
+service ssh start 
+```
+开启 ssh 服务;
+
+最后修改 `root` 账户密码：
+```
+passwd
+```
 完事!

@@ -1,7 +1,10 @@
 sudo apt update
 sudo apt install -y \
+	curl \
+	wget \
 	tmux \
 	vim \
 	git \
 	proxychains \
-	unzip
+	net-tools \
+
