@@ -6,5 +6,8 @@ sudo apt install -y \
 	vim \
 	git \
 	proxychains \
-	net-tools \
+	net-tools
+
+
+
 

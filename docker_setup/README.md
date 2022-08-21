@@ -4,6 +4,15 @@
 ## 2. 
 `setup_ubuntu.sh` 是用来安装一些常用的小工具，如 git, proxychains, tmux 等等；
 
+### 2.1 
+有时候，如果这台物理机中没有安装 nvidia-driver，尤其是重装系统之后的服务器，那么就需要先装一下显卡驱动
+```
+sudo apt update
+```
+```
+sudo apt install nvida-driver-460 -y
+```
+
 ### ========= 以上是直接在物理机上安装 docker 开发环境，以下是在物理机上用 docker 创建新的虚拟服务器
 ## 3. 
 `create_new_docker_server.sh` 是用来通过 docker 的方式来创建新服务器的，里面需要修改的内容包括 <username>, 以及三个端口号 12222, 14000, 15000;
