@@ -1,5 +1,5 @@
 # docker_setup ===
-1. `docker_setup` 里面的文件分为两部分，一部分是用于在物理机上新建一个开发环境，那么就需要对物理机的 ubuntu 系统安装一些小工具，以及安装必要的 docker 工具，包括 `docker-ce` 以及 `nvidia-docker2` ；
+1. `docker_setup` 里面的文件分为两部分，一部分是用于在物理机上新建一个开发环境，那么就需要对物理机的 ubuntu 系统安装一些小工具，以及安装必要的 docker 工具，包括 `docker-ce` 以及 `nvidia-docker2` ，详细信息请查看[这里](https://github.com/Sebastian-Ma-67/envs/tree/main/docker_setup)；
 
 2. 另外一部分是在此基础上，新建一个 ubuntu 系统容器，用于给新用户开新账号；
 
