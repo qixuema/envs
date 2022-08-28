@@ -35,7 +35,11 @@ curl https://get.docker.com | sh \
   && sudo systemctl --now enable docker
   
 # Setting up NVIDIA Container Toolkit
-## Setup the package repository and the GPG key:
+echo "=== Setup the package repository and the GPG key"
+
+## 这里有一个问题是：当执行第二个 curl 的时候，前面需要加上 proxychains，否则没有任何输入，
+## 而一旦加上之后，tee 命令又会把 proxychains 的信息写入到 nvidia-container-toolkit.list 行首位置，这时候又需要手动去删除掉这些，暂时我还不知道怎么去解决这个问题 
+
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
       && curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
       && curl -s -L https://nvidia.github.io/libnvidia-container/$distribution/libnvidia-container.list | \
@@ -53,17 +57,25 @@ sudo systemctl restart docker
 # At this point, a working setup can be tested by running a base CUDA container:
 sudo docker run --rm --gpus all nvidia/cuda:11.0.3-base-ubuntu20.04 nvidia-smi
 
-# ===== postprocessing =====
+echo "===== postprocessing ====="
+echo "=== 
 # If u want to manage Docker as a non-root user, u can:
 #   sudo groupadd docker
 #   sudo usermod -aG docker xueqi
 #   newgrp docker 
-#   docker ps
+#   docker ps 
+==="
 
+echo "=== 
 # if u want clear all the files about docker, you can do like this:
 # Uninstall Docker Engine
 #   sudo apt-get purge docker-ce docker-ce-cli containerd.io docker-compose-plugin
+# However, in general, I do not recommend executing this command!
+==="
 
+echo "=== 
 # Delete all images, containers, and volumes
 #   sudo rm -rf /var/lib/docker
 #   sudo rm -rf /var/lib/containerd
+# Unless you don't want to live, it is not recommended that you execute the above command!
+==="
