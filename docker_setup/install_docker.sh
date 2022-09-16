@@ -41,8 +41,7 @@ curl https://get.docker.com | sh \
 # Setting up NVIDIA Container Toolkit
 echo "=== Setup the package repository and the GPG key"
 
-## 这里有一个问题是：当执行第二个 curl 的时候，前面需要加上 proxychains，否则没有任何输入，
-## 而一旦加上之后，tee 命令又会把 proxychains 的信息写入到 nvidia-container-toolkit.list 行首位置，这时候又需要手动去删除掉这些，暂时我还不知道怎么去解决这个问题 
+## 這裡我加上了 proxychains ，因為如果不加的話，這些地址 curl 不到 
 
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
       && proxychains curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
