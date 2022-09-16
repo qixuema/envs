@@ -14,12 +14,15 @@ sudo apt-get install -y \
 
 ## Add Docker’s official GPG key:
 sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+proxychains curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 
 ## Use the following command to set up the repository:
-echo \
+proxychains echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# delete 'ProxyChains-3.1' info in docker.list
+sudo sed -i '1d' /etc/apt/sources.list.d/docker.list
 
 # Install Docker Engine
 ## Update the apt package index, and install the latest version of Docker Engine, containerd
@@ -29,6 +32,7 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
 
 # ===== Install docker nvidia-docker2 =====
+# https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html
 # Setting up Docker
 ## Docker-CE on Ubuntu can be setup using Docker’s official convenience script:
 curl https://get.docker.com | sh \
@@ -41,13 +45,16 @@ echo "=== Setup the package repository and the GPG key"
 ## 而一旦加上之后，tee 命令又会把 proxychains 的信息写入到 nvidia-container-toolkit.list 行首位置，这时候又需要手动去删除掉这些，暂时我还不知道怎么去解决这个问题 
 
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
-      && curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
-      && curl -s -L https://nvidia.github.io/libnvidia-container/$distribution/libnvidia-container.list | \
+      && proxychains curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+      && proxychains curl -s -L https://nvidia.github.io/libnvidia-container/$distribution/libnvidia-container.list | \
             sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
             sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
 
+# delete the first line info
+sudo sed -i '1d' /etc/apt/sources.list.d/nvidia-container-toolkit.list
+
 ## Install the nvidia-docker2 package (and dependencies) after updating the package listing:
-sudo apt-get update
+sudo proxychains apt-get update
 
 sudo apt-get install -y nvidia-docker2
 
