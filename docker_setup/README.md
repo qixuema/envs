@@ -1,10 +1,6 @@
-## 1. install_docker.sh
-`install_docker.sh` 是用来在服务器的物理机上安装 docker 以及 nvidia-docker2，
-其中安装的过程中，尤其是安装 nvidia-docker2 的时候，需要翻墙，否则安装过程中会出现某些网站无法访问的问题，导致安装失败；
-## 2. setup_ubuntu.sh
+## 1. setup_ubuntu.sh
 `setup_ubuntu.sh` 是用来安装一些常用的小工具，如 git, proxychains, tmux 等等；
-
-### 2.1 
+### 1.1 (opiton)
 有时候，如果这台物理机中没有安装 nvidia-driver，尤其是重装系统之后的服务器，那么就需要先装一下显卡驱动
 ```
 sudo apt update
@@ -12,6 +8,13 @@ sudo apt update
 ```
 sudo apt install nvida-driver-460 -y
 ```
+
+## 2. install_docker.sh (需要预先安装 proxychains，并且能够访问外网)
+`install_docker.sh` 是用来在服务器的物理机上安装 docker 以及 nvidia-docker2，
+其中在安装的过程中，尤其是安装 nvidia-docker2 的时候，需要翻墙，否则安装过程中会出现某些网站无法访问的问题，导致安装失败；
+
+
+
 
 ### ========= 以上是直接在物理机上安装 docker 开发环境，以下是在物理机上用 docker 创建新的虚拟服务器
 ## 3. create_new_server.sh
