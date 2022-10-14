@@ -15,30 +15,30 @@
 # xqdl ===
 1. 服务器物理机上安装 ubuntu 常用小工具以及 docker 工具之后（上面部分的内容），我们就可以进入到 `xqdl` （这里是我的名字缩写+dl）文件夹里了；
 
-2. 接下来我们安装深度学习开发环境：
+2. 接下来我们安装深度学习开发环境：下面涉及到的文件的详细介绍请参考[这里](https://github.com/Sebastian-Ma-67/envs/tree/main/xqdl#readme)
 
-    1. 首先，修改 `Dockerfile` 文件，主要是修改第一行的 `pytorch` 版本，这个与 `cuda` 版本相关，即我们要首先确定 `cuda` 的版本是多少，具体修改成什么请查询 `dockerhub` ，查询方法在[这里](https://github.com/Sebastian-Ma-67/envs/issues/1)。注意，不要把 dockerhub 里面的 docker pull 字样也粘贴进去！
+    1. 首先，修改 `Dockerfile` 文件，主要是修改第一行的 `pytorch` 版本和 `cuda` 版本。`pytorch` 版本与 `cuda` 版本相关，即我们要首先确定 `cuda` 的版本是多少，具体修改成什么请查询 `dockerhub` ，查询方法在[这里](https://github.com/Sebastian-Ma-67/envs/issues/1)。注意，不要把 dockerhub 里面的 docker pull 字样也粘贴进去！
 
-    2. 其次，打开并修改 `build.sh` 文件，主要是修改要生成的 `image` 的名字和标签。例如，在本案例中，xqdl:cuda11.3 中的 xqdl 是镜像（image）的名字，cuda11.3 是镜像（image）的标签（tag）；
+    2. 其次，打开并修改 `build.sh` 文件，主要是修改要生成的 `image` 的名字和标签，修改方式请参考[这里](https://github.com/Sebastian-Ma-67/envs/tree/main/xqdl#readme)；
 
     3. 然后，执行下面命令来构建镜像：
         ```
         bash build.sh
         ```
 
-    4. 接着，修改 `xqdl_start.sh` 文件，主要是修改要创建的 `container` 的名字、分配的端口号，以及是基于哪一个 `image` 来创建的，然后执行下面命令：
+    4. 接着，修改 `xqdl_start.sh` 文件，主要是修改要创建的 `container` 的名字、分配的端口号，以及是基于哪一个 `image` 来创建的，修改方式请参考[这里](https://github.com/Sebastian-Ma-67/envs/tree/main/xqdl#readme)。然后执行下面命令：
         ```
         bash xqdl_start.sh
         ```
 
 3. 进入 container 之后，执行以下命令开启 ssh 服务：
-```
-service ssh start 
-```
+    ```
+    service ssh start 
+    ```
 
-4. 最后修改 `root` 账户密码：
-```
-passwd
-```
+4. 最后修改 `root` 账户密码，输入一个自己喜欢的密码：
+    ```
+    passwd
+    ```
 
 完事!

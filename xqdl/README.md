@@ -1,6 +1,7 @@
 ## build.sh 文件介绍
 ```shell
 docker build --tag xqdl:cuda11.3 . # xqdl:cuda11.3 指的是生成的镜像的名字:标签，后面的 `.` 表示 build 操作是在当前路径下进行的
+# 在本案例中，xqdl:cuda11.3 中的 xqdl 是镜像（image）的名字，cuda11.3 是镜像（image）的标签（tag）
 ```
 
 ## xqdl_start.sh 文件介绍
