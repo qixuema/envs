@@ -3,7 +3,7 @@ sudo apt-get remove docker docker-engine docker.io containerd runc
 
 # ===== Install docker =====
 ## Update the apt package index and install packages to allow apt to use a repository over HTTPS:
-sudo apt-get update
+sudo proxychains apt-get update
 
 sudo apt-get install -y \
     apt-transport-https \
@@ -26,7 +26,7 @@ sudo sed -i '1d' /etc/apt/sources.list.d/docker.list
 
 # Install Docker Engine
 ## Update the apt package index, and install the latest version of Docker Engine, containerd
-sudo apt-get update
+sudo proxychains apt-get update
 
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
@@ -41,7 +41,7 @@ curl https://get.docker.com | sh \
 # Setting up NVIDIA Container Toolkit
 echo "=== Setup the package repository and the GPG key"
 
-## 這裡我加上了 proxychains ，因為如果不加的話，這些地址 curl 不到 
+## 這裡我加上了 proxychains ，因為如果不加的話，這些地址 curl 不到 ，注意，当执行完一下命令之后，如果是 20.04，那么最后写入内容为 18.04，而不是 20.04
 
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
       && proxychains curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
@@ -55,7 +55,8 @@ sudo sed -i '1d' /etc/apt/sources.list.d/nvidia-container-toolkit.list
 ## Install the nvidia-docker2 package (and dependencies) after updating the package listing:
 sudo proxychains apt-get update
 
-sudo apt-get install -y nvidia-docker2
+# 这里在给 yangyue 电脑安装的时候，需要使用 proxy，否则会失败
+sudo proxychains apt-get install -y nvidia-docker2
 
 # Restart the Docker daemon to complete the installation after setting the default runtime:
 sudo systemctl restart docker
