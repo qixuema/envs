@@ -1,8 +1,8 @@
 # 创建新的虚拟服务器, <username>.c 只是一个容器的名字，表示该容器是 <username> 的 [c]ontainer, 创建； 注意 -v 後面的/mnt/d 是不能修改的，
 name=test
-ssh_port=12225
-remote_control_port=14003
-diy_port=15003
+ssh_port=12222
+remote_control_port=14000
+diy_port=15000
 ip_address=156
 
 sudo docker run -d -it \
@@ -13,7 +13,7 @@ sudo docker run -d -it \
 -p ${ssh_port}:22 \
 -p ${remote_control_port}:3389 \
 -p ${diy_port}:15000 \
--v /mnt/data1/${name}:/mnt/d \
+-v /mnt/data/${name}:/mnt/d \
 danielguerra/ubuntu-xrdp:20.04
 
 # 将该容器设置为意外退出时进行重启操作
