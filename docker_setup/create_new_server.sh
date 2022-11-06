@@ -5,6 +5,10 @@ remote_control_port=14000
 diy_port=15000
 ip_address=156
 
+hard_disk_path=/mnt/data/${name}
+sudo mkdir -p ${hard_disk_path}
+sudo touch ${hard_disk_path}/${name}.txt
+
 sudo docker run -d -it \
 --name ${name}.c \
 --gpus all \
@@ -13,7 +17,7 @@ sudo docker run -d -it \
 -p ${ssh_port}:22 \
 -p ${remote_control_port}:3389 \
 -p ${diy_port}:15000 \
--v /mnt/data/${name}:/mnt/d \
+-v ${hard_disk_path}:/mnt/d \
 danielguerra/ubuntu-xrdp:20.04
 
 # 将该容器设置为意外退出时进行重启操作
