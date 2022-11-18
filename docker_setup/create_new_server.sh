@@ -22,3 +22,4 @@ danielguerra/ubuntu-xrdp:20.04
 
 # 将该容器设置为意外退出时进行重启操作
 docker update --restart unless-stopped ${name}.c
+docker restart ${name}.c
