@@ -55,3 +55,4 @@ COPY .jupyter /root/.jupyter
 
 # config bash
 COPY .bash_aliases /root/.bash_aliases
+ENTRYPOINT service ssh restart && bash
