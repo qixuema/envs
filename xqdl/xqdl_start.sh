@@ -1,12 +1,18 @@
+name=xqdl_cu113
+image_name=xqdl:cuda11.3
+hostname=cu113
+
 sudo docker run --gpus all -it \
---name=xqdl_cu113 \
---hostname cu113 \
+--name=${name} \
+--hostname  ${hostname}\
 -p 8022:22  \
 --ipc=host  \
 --cap-add NET_ADMIN --device /dev/net/tun \
 -v /mnt/data/xueqi:/studio \
-xqdl:cuda11.3 \
-bash
+${image_name}
+
+docker update --restart unless-stopped ${name}
+docker restart ${name}
 
 #-v qinglong:/studio \
 
