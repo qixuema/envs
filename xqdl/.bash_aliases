@@ -1,7 +1,7 @@
 alias rsync='rsync -avh --info=progress2 '
-alias deact='conda deactivate'
+alias deact='mamba deactivate'
 act() {
-    conda activate "$1"
+    mamba activate "$1"
 }
 alias ll='ls -alF'
 alias la='ls -A'
@@ -17,4 +17,6 @@ function gsync() {
      git push origin master
  }
  git config --global alias.adog "log --all --decorate --oneline --graph"
+
+alias studio="cd /studio/project"
 
