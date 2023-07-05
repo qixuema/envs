@@ -1,24 +1,31 @@
 ## Dockfile 文件介绍
 ```Dockfile
-FROM pytorch/pytorch:1.11.0-cuda11.3-cudnn8-devel # 这个文件我们只需要修改 FROM 后面的内容就可以了，其他的可以不用修改
+FROM pytorch/pytorch:1.11.0-cuda11.3-cudnn8-devel       # 这个文件我们只需要修改 FROM 后面的内容就可以了，其他的可以不用修改
 ...
 ```
 ## build.sh 文件介绍
 ```shell
-docker build --tag xqdl:cuda11.3 . # xqdl:cuda11.3 指的是生成的镜像的名字:标签，后面的 `.` 表示 build 操作是在当前路径下进行的
+docker build --tag xqdl:cuda11.3 .       # xqdl:cuda11.3 指的是生成的镜像的名字:标签，后面的 `.` 表示 build 操作是在当前路径下进行的
 # 在本案例中，xqdl:cuda11.3 中的 xqdl 是镜像（image）的名字，cuda11.3 是镜像（image）的标签（tag）。这里可以根据自己的喜好修改名字和标签
 ```
 
 ## xqdl_start.sh 文件介绍
 ```shell
+name=container_name              # 这里的 container_name 是即将生成的容器的名字，可以根据自己的喜好修改
+image_name=image_name            # 这里的 image_name 是我们之前 build 的镜像名称
+hostname=your_hostname           # 这里的 your_hostname 是生成的 ubuntu 系统的主机名，可以根据自己的喜好修改
+
 sudo docker run --gpus all -it \
---name=xqdl_cu113 \             # 这里的 xqdl_cu113 是即将生成的容器的名字，可以根据自己的喜好修改
---hostname cu113 \              # 这里的 cu113 是生成的 ubuntu 系统的主机名，可以根据自己的喜好修改
--p 8022:22   \                  # 这里的 8022 是容器内部的 22 端口在外部的映射，我们在使用 ssh 连接该容器的时候需要指定该端口号
---ipc=host   \ 
+--name ${name} \
+--hostname ${hostname} \
+-p 8022:22  \                                  # 注意这里的 8022 是否要修改，如果 8022 端口号已经被占用，则需要进行修改
+--ipc=host  \
 --cap-add NET_ADMIN --device /dev/net/tun \
--v /mnt/data/xueqi:/studio \    # 在执行该文件之前，我们需要在服务器的物理机上面提前新建一个文件夹，为 `/mnt/data/xueqi`
-xqdl:cuda11.3 \                 # 这里的 xqdl:cuda11.3 是我们之前 build 的镜像名称:镜像标签
-bash
+-v /mnt/data/xueqi:/studio \                   # 在执行该文件之前，我们需要在服务器的物理机上面提前新建一个文件夹，我这里新建的是 `/mnt/data/xueqi`
+${image_name}
+
+docker update --restart unless-stopped ${name}     # 设置我们新建的容器为开机自启动
+docker restart ${name}                             # 重启容器
+
 # 注意，执行该文件之后，我们就自动进入到了容器内部，并且此时我们的账号是 root 账号，我们以后也是在该账号下工作
 ```
