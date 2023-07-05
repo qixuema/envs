@@ -33,12 +33,12 @@
         bash xqdl_start.sh
         ```
 
-3. 进入 container 之后，执行以下命令开启 ssh 服务：
+3. 进入 container 之后，执行以下命令开启 ssh 服务（我后来在 Dockerfile 添加了自启动 ssh 服务，所以下面这行命令可以不执行）：
     ```
     service ssh start 
     ```
 
-4. 最后修改 `root` 账户密码，输入一个自己喜欢的密码：
+4. 最后修改 `root` 账户密码，输入一个自己喜欢的密码（务必要执行一下，因为 ssh 连接的时候是需要输入密码的）：
     ```
     passwd
     ```
