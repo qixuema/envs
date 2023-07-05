@@ -1,10 +1,10 @@
-name=xqdl_cu113
-image_name=xqdl:cuda11.3
-hostname=cu113
+name=container_name
+image_name=image_name
+hostname=your_hostname
 
 sudo docker run --gpus all -it \
---name=${name} \
---hostname  ${hostname}\
+--name ${name} \
+--hostname  ${hostname} \
 -p 8022:22  \
 --ipc=host  \
 --cap-add NET_ADMIN --device /dev/net/tun \
