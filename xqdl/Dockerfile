@@ -51,9 +51,10 @@ RUN ln -s /studio /root/studio
 COPY .jupyter /root/.jupyter
 # install jupyterlab
 # RUN conda install -c conda-forge jupyterlab nb_conda_kernels mamba --yes
+
 # I prefer to use mamaba, so I install it like blow.
-RUN curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
-RUN bash Mambaforge-$(uname)-$(uname -m).sh
+# RUN curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
+# RUN bash Mambaforge-$(uname)-$(uname -m).sh
 
 
 
