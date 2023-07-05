@@ -4,7 +4,7 @@ hostname=your_hostname
 
 sudo docker run --gpus all -it \
 --name ${name} \
---hostname  ${hostname} \
+--hostname ${hostname} \
 -p 8022:22  \
 --ipc=host  \
 --cap-add NET_ADMIN --device /dev/net/tun \
