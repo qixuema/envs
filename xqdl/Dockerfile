@@ -59,4 +59,6 @@ RUN bash Mambaforge-$(uname)-$(uname -m).sh
 
 # config bash
 COPY .bash_aliases /root/.bash_aliases
+
+# restart ssh service
 ENTRYPOINT service ssh restart && bash
