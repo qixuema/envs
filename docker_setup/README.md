@@ -2,12 +2,7 @@
 `setup_ubuntu.sh` 是用来安装一些常用的小工具，如 git, proxychains, tmux 等等；
 ### 1.1 (opiton)
 有时候，如果这台物理机中没有安装 nvidia-driver，尤其是重装系统之后的服务器，那么就需要先装一下显卡驱动。如果 nvidia-smi 能看到显卡情况的话，就可以忽略掉这部分了
-```
-sudo apt update
-```
-```
-sudo apt install nvida-driver-460 -y
-```
+新系统显卡驱动参考[这里](https://github.com/qixuema/envs/issues/3)
 
 ## 2. install_docker.sh 
 ### 2.1 外网访问工具安装
