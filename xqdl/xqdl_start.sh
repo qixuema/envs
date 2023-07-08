@@ -15,8 +15,8 @@ sudo docker run --gpus all -it \
 -v ${hard_disk_path}:/studio \
 ${image_name}
 
-docker update --restart unless-stopped ${name}
-docker restart ${name}
+# docker update --restart unless-stopped ${name}
+# docker restart ${name}
 
 #-v qinglong:/studio \
 
