@@ -15,13 +15,17 @@ name=container_name              # 这里的 container_name 是即将生成的�
 image_name=image_name            # 这里的 image_name 是我们之前 build 的镜像名称
 hostname=your_hostname           # 这里的 your_hostname 是生成的 ubuntu 系统的主机名，可以根据自己的喜好修改
 
+hard_disk_path=/mnt/data/${name}          # 在执行该文件之前，我们需要在服务器的物理机上面提前新建一个文件夹，我这里新建的是 `/mnt/data/xueqi`
+sudo mkdir -p ${hard_disk_path}           # 创建指定的物理机挂载路径
+sudo touch ${hard_disk_path}/${name}.txt  # 新建一个 test 文件
+
 sudo docker run --gpus all -it \
 --name ${name} \
 --hostname ${hostname} \
 -p 8022:22  \                                  # 注意这里的 8022 是否要修改，如果 8022 端口号已经被占用，则需要进行修改
 --ipc=host  \
 --cap-add NET_ADMIN --device /dev/net/tun \
--v /mnt/data/xueqi:/studio \                   # 在执行该文件之前，我们需要在服务器的物理机上面提前新建一个文件夹，我这里新建的是 `/mnt/data/xueqi`
+-v ${hard_disk_path}:/studio \
 ${image_name}
 
 docker update --restart unless-stopped ${name}     # 设置我们新建的容器为开机自启动
