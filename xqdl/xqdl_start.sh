@@ -6,17 +6,18 @@ hard_disk_path=/mnt/data/${name}
 sudo mkdir -p ${hard_disk_path}
 sudo touch ${hard_disk_path}/${name}.txt
 
-sudo docker run --gpus all -it \
+sudo docker run --gpus all -d -it \
 --name ${name} \
 --hostname ${hostname} \
--p 8022:22  \
---ipc=host  \
+-p 8022:22 \
+-p 16000:16000 \
+--ipc=host \
 --cap-add NET_ADMIN --device /dev/net/tun \
 -v ${hard_disk_path}:/studio \
 ${image_name}
 
-# docker update --restart unless-stopped ${name}
-# docker restart ${name}
+docker update --restart unless-stopped ${name}
+docker restart ${name}
 
 #-v qinglong:/studio \
 

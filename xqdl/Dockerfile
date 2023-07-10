@@ -31,6 +31,10 @@ COPY ssh/ssh_config /etc/ssh/ssh_config
 COPY ssh/sshd_config /etc/ssh/sshd_config
 COPY .ssh /root/.ssh
 
+# config root password
+RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+RUN echo "root:123" | chpasswd
+
 # config proxychains
 COPY proxychains.conf /etc/proxychains.conf
 
@@ -48,7 +52,7 @@ RUN conda init bash
 RUN ln -s /studio /root/studio
 
 # config jupyter
-COPY .jupyter /root/.jupyter
+# COPY .jupyter /root/.jupyter
 # install jupyterlab
 # RUN conda install -c conda-forge jupyterlab nb_conda_kernels mamba --yes
 
