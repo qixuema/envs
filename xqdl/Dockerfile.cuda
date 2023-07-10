@@ -63,6 +63,9 @@ RUN ln -s /studio /root/studio
 # RUN conda clean -i
 # RUN conda init bash
 
+# Some software I don't know how to install automatically at the moment, I need to install it manually after generating the container
+COPY install_tools.sh /root/install_tools.sh
+
 # config bash
 COPY .bash_aliases /root/.bash_aliases
 
