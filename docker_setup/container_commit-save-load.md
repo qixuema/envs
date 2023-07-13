@@ -2,7 +2,7 @@
 
 # container commit 将容器打包为新的镜像
 ```
-docker commit -a <author> -m <commit msg> <容器名称> <新的镜像>
+docker commit -a <author> -m <commit msg> <容器名称> <新的镜像名称(仓库名:标签)>
 ```
 
 # image save 将新的镜像保存为 tar 文件
