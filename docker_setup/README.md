@@ -1,7 +1,8 @@
 ## 1. setup_ubuntu.sh
 `setup_ubuntu.sh` 是用来安装一些常用的小工具，如 git, proxychains, tmux 等等；
 ### 1.1 (opiton)
-有时候，如果这台物理机中没有安装 nvidia-driver，尤其是重装系统之后的服务器，那么就需要先装一下显卡驱动。如果 nvidia-smi 能看到显卡情况的话，就可以忽略掉这部分了
+有时候，如果这台物理机中没有安装 nvidia-driver，尤其是重装系统之后的服务器，那么就需要先装一下显卡驱动。如果 nvidia-smi 能看到显卡情况的话，就可以忽略掉这部分了  
+
 新系统显卡驱动参考[这里](https://github.com/qixuema/envs/issues/3)
 
 ## 2. install_docker.sh 
@@ -14,13 +15,13 @@ bash install_docker.sh
 ```
 
 
-### ========= 分界线，以上是直接在物理机上安装 docker 开发环境，以下是在物理机上用 docker 创建新的虚拟服务器，
-注意：如果只是需要用 cuda 和 pytorch 来跑深度学习的话，下面这部分可以不用看。
+### =========分界线========================================
+以上是直接在物理机上安装 docker 开发环境，以下是在物理机上用 docker 创建新的虚拟服务器，主要针对的是给服务器创建新的账号
 ## 3. create_new_server.sh
 ### 3.1 映射文件夹创建
-需要注意的是，在使用 docker 创建新的虚拟服务器之前，需要创建以下文件夹，用来存放用户的重要数据 `/mnt/d/<hostname>`，而且我们还要保证该路径挂载的是物理机的机械盘，因为我们建议把重要的代码和资料放在机械盘上;
+需要注意的是，在使用 docker 创建新的虚拟服务器之前，需要创建以下文件夹，用来存放用户的重要数据 `/mnt/d/<hostname>`，而且我们还要保证该路径挂载的是物理机的「机械盘」，我们建议把重要的代码和资料放在机械盘上;
 ### 3.2 创建容器
-`create_new_server.sh` 是用来通过 docker 的方式来创建新服务器的，里面需要修改的内容包括 <username>, 以及三个端口号 12222, 14000, 15000;  
+`create_new_server.sh` 是用来通过 docker 的方式来创建新服务器的，里面需要修改的内容包括 <username>, 以及三个端口号 12222, 14000, 15000，还有 ip 号，比如 155;  
 
 修改 `create_new_server.sh` 文件
 ```
@@ -31,6 +32,8 @@ sudo vim create_new_server.sh
 bash create_new_server.sh
 ```
 
+### =========分界线========================================
+以上是就是给服务器创建容器账号，下面是一些额外的操作，一般情况下不需要执行
 ## 4. container_csl.txt
 `container_csl` 容器迁移，或者定期保存时使用；
 ## 5. create_new_account.txt
