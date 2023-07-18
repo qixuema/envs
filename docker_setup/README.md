@@ -18,9 +18,15 @@ bash install_docker.sh
 注意：如果只是需要用 cuda 和 pytorch 来跑深度学习的话，下面这部分可以不用看。
 ## 3. create_new_server.sh
 ### 3.1 映射文件夹创建
-需要注意的是，在使用 docker 创建新的虚拟服务器之前，需要创建以下文件夹，用来存放用户的重要数据 `/mnt/d/<hostname>` ;
+需要注意的是，在使用 docker 创建新的虚拟服务器之前，需要创建以下文件夹，用来存放用户的重要数据 `/mnt/d/<hostname>`，而且我们还要保证该路径挂载的是物理机的机械盘，因为我们建议把重要的代码和资料放在机械盘上;
 ### 3.2 创建容器
-`create_new_server.sh` 是用来通过 docker 的方式来创建新服务器的，里面需要修改的内容包括 <username>, 以及三个端口号 12222, 14000, 15000;
+`create_new_server.sh` 是用来通过 docker 的方式来创建新服务器的，里面需要修改的内容包括 <username>, 以及三个端口号 12222, 14000, 15000;  
+
+修改 `create_new_server.sh` 文件
+```
+sudo vim create_new_server.sh
+```
+执行 `create_new_server.sh` 文件
 ```
 bash create_new_server.sh
 ```
