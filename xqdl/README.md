@@ -1,7 +1,7 @@
 ## Dockfile 文件介绍
 > Dockerfile 文件有两个，一个是基于 Pytorch 官方提供的镜像，另外一个是基于 Nvidia 提供的 cuda 镜像。如果你只需要一个装好 cuda 的 ubuntu 系统，那么可以选择 Nvidia 提供的镜像，此时，你需要将 `Dockerfile.cuda` 的文件名修改为 `Dockerfile`; 如果你需要一个装好 cuda 和 pytorch 的 ubuntu 系统，那么可以选择 Pytorch 官方提供的镜像，同样也需要修改对应的 `Dockerfile` 文件名。
 ```Dockfile
-FROM pytorch/pytorch:1.11.0-cuda11.3-cudnn8-devel  # 这个文件我们只需要修改 FROM 后面的内容就可以了，其他的可以不用修改  
+FROM pytorch/pytorch:1.11.0-cuda11.3-cudnn8-devel  # 这个文件我们只需要修改 FROM 后面的内容就可以了，其他的可以不用修改，注意镜像的版本一定要选择 devel 版本，而不是 runtime 版本，因为后面我们在安装一些扩展包的时候，需要进行编译；  
 ```
 > Note: 默认的 `sources.list` 是对应 `ubuntu 20.04`; 如果这里选择的镜像是 `ubuntu 22.04`，请将 `/apt` 路径下的 `sources.list` 文件中的内容替换为 `sources.list.22.04` 文件中的内容!!!
 ## build.sh 文件介绍
