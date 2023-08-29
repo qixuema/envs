@@ -6,17 +6,6 @@
     
     详细信息请查看[这里](https://github.com/Sebastian-Ma-67/envs/tree/main/docker_setup)；
 
-2. 安装完 `docker` 之后，可以将 `当前用户` 存入到 `docker组` 中，这样以后可以直接使用 docker 命令，不用每次都sudo。只需执行下面三行命令：
-    ```
-    sudo groupadd docker
-    ```
-    ```
-    sudo usermod -aG docker 用户名
-    ```
-    ```
-    newgrp docker 
-    ```
-
 # xqdl ===
 1. 服务器物理机上安装 ubuntu 常用小工具以及 docker 工具之后（上面部分的内容），我们就可以进入到 `xqdl` （这里是我的名字缩写+dl）文件夹里了；
 
