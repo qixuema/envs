@@ -44,11 +44,11 @@ bash create_new_server.sh
 
 ### =========分界线========================================
 上面就是给服务器创建容器账号，下面是一些额外的操作，一般情况下不需要执行
-## 4. container_csl.txt
+## 4. [打包容器、保存&加载镜像](https://github.com/qixuema/envs/blob/cd3685eee6bac9f16f32635d63b76cfc7408b954/docker_setup/%E6%89%93%E5%8C%85%E5%AE%B9%E5%99%A8%E3%80%81%E4%BF%9D%E5%AD%98%26%E5%8A%A0%E8%BD%BD%E9%95%9C%E5%83%8F.md?plain=1#L1)
 `container_csl` 容器迁移，或者定期保存时使用；
-## 5. create_new_account.txt
+## 5. [在容器中创建新账号](https://github.com/qixuema/envs/blob/cd3685eee6bac9f16f32635d63b76cfc7408b954/docker_setup/create_new_account.md?plain=1#L1)
 `create_new_account` 在创建好新的虚拟服务器之后，创建新的账户；
-## 6. 容器自启动方法.txt
+## 6. [容器自启动方法.txt](https://github.com/qixuema/envs/blob/cd3685eee6bac9f16f32635d63b76cfc7408b954/docker_setup/Container_self-start_method.md?plain=1#L8C52-L8C52)
 有的时候，当我们不小心把电脑重启之后，我们之前运行的 `container` 就会在关机的时候关闭掉，在重启的时候并不会自动打开，因此我们需要通过一些设置，使得容器可以在非主动退出的情况下进行重启；
-## 7. 设置机械硬盘开机自动挂载.txt
+## 7. [设置机械硬盘开机自动挂载.txt](https://github.com/qixuema/envs/blob/cd3685eee6bac9f16f32635d63b76cfc7408b954/docker_setup/Set_mechanical_hard_drives_to_automatically_mount_on_boot.md?plain=1#L1)
 在我们把机械硬盘分好区，并挂载好之后，如果不将挂载信息写入到开机执行文件中，那么我们就需要自己手动地再一次挂载机械硬盘，为了避免麻烦，我们需要对此进行设置；
