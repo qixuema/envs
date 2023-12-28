@@ -37,5 +37,5 @@
 5. 注意，新的容器里面已经安装好了 cuda、pytorch、conda，不需要我们再次安装了
 
 完事!
-## Acknowledgement
+## Appreciation
 @[QhelDIV](https://github.com/QhelDIV)
