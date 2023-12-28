@@ -19,8 +19,6 @@ ${image_name}
 docker update --restart unless-stopped ${name}
 docker restart ${name}
 
-#-v qinglong:/studio \
-
 #pytorch/pytorch:1.6.0-cuda10.1-cudnn7-devel
 #--privileged \
 #--cap-add SYS_ADMIN \
