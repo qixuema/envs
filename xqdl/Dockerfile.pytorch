@@ -60,8 +60,6 @@ RUN ln -s /studio /root/studio
 # RUN curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
 # RUN bash Mambaforge-$(uname)-$(uname -m).sh
 
-
-
 # config bash
 COPY .bash_aliases /root/.bash_aliases
 
