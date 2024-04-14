@@ -55,16 +55,23 @@ RUN ln -s /studio /root/studio
 # install jupyterlab
 # RUN conda install -c conda-forge jupyterlab nb_conda_kernels --yes
 
-# I prefer to use mamaba, so I install it like blow.
-# RUN curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
-# RUN bash Mambaforge-$(uname)-$(uname -m).sh -y
+# NOTE: I prefer to use mamaba, so I install it like blow. If you don't like it, you can comment it.
+RUN curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
+# ENTER 'yes' twice
+RUN printf '\n%s\n\n%s\n' 'yes' 'yes' | bash Mambaforge-$(uname)-$(uname -m).sh 
+
+# 这个命令将输出：
+# - 第一个 `\n`：模拟按下 `Enter` 继续许可协议。
+# - 第一个 `%s\n`：输入 "yes" 并按 `Enter` 接受许可协议。
+# - 第二个 `\n`：再次模拟按下 `Enter`，通常是确认安装路径。
+# - 第二个 `%s\n`：输入 "yes" 并按 `Enter`，如果需要确认任何其他选项。
 
 # COPY .condarc /root/.condarc
 # RUN conda clean -i
 # RUN conda init bash
 
 # Some software I don't know how to install automatically at the moment, I need to install it manually after generating the container
-COPY install_tools.sh /root/install_tools.sh
+# COPY install_tools.sh /root/install_tools.sh
 
 # config bash
 COPY .bash_aliases /root/.bash_aliases
