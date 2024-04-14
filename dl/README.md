@@ -19,7 +19,7 @@ docker build --tag qixuema:cu122 .
 # 这里可以根据自己的喜好修改名字和标签
 ```
 
-## xqdl_start.sh 文件介绍
+## container_create.sh 文件介绍
 
 ```shell
 name=container_name              # 这里的 container_name 是即将生成的容器的名字，可以根据自己的喜好修改
