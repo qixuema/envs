@@ -64,6 +64,13 @@ sudo systemctl restart docker
 # At this point, a working setup can be tested by running a base CUDA container:
 sudo docker run --rm --gpus all nvidia/cuda:11.0.3-base-ubuntu20.04 nvidia-smi
 
+# set current user to docker group
+username=$USER
+sudo groupadd docker
+sudo usermod -aG docker $username
+newgrp docker 
+docker ps 
+
 echo "===== postprocessing ====="
 echo "=== 
 # If u want to manage Docker as a non-root user, u can:

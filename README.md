@@ -1,6 +1,6 @@
 # 搭建深度学习 Docker 容器开发环境
 
-如果只是给服务器创建「容器账号」，那就只需要看 docker_setup 即可，如果是自己需要使用容器来搭建深度学习开发环境，则需要看 [dl](https://github.com/qixuema/envs/tree/main/dl) 部分
+如果只是给服务器创建「容器账号」，那就只需要看 [docker_setup](https://github.com/qixuema/envs/tree/main/docker_setup) 即可，如果是自己需要使用容器来搭建深度学习开发环境，则需要看 [dl](https://github.com/qixuema/envs/tree/main/dl) 部分
 
 # docker_setup ===
 
