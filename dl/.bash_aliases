@@ -18,5 +18,5 @@ function gsync() {
  }
  git config --global alias.adog "log --all --decorate --oneline --graph"
 
-alias studio="cd /studio/project"
+alias studio="cd /studio/projects"
 
