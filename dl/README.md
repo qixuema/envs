@@ -33,9 +33,9 @@ sudo touch ${hard_disk_path}/${name}.txt  # 新建一个 test 文件，用于测
 sudo docker run --gpus all -it -d \
 --name ${name} \
 --hostname ${hostname} \
--p 8022:22  \                                   # 注意这里的 8022 是否要修改，如果 8022 端口号已经被占用，则需要进行修改
+-p 8022:22 \                                   # 注意这里的 8022 是否要修改，如果 8022 端口号已经被占用，则需要进行修改
 -p 16000:16000 \                                # 这个是自定义的端口号，可以根据自己的喜好进行修改
---ipc=host  \
+--ipc=host \
 --cap-add NET_ADMIN --device /dev/net/tun \
 -v ${hard_disk_path}:/studio \
 ${image_name}
