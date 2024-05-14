@@ -7,7 +7,7 @@
 
 ## 2. install_docker.sh 
 ### 2.1 外网访问工具安装
-我们需要预先安装 proxychains，并且能够访问外网，proxychains 的安装配置请参考[这里](https://github.com/Sebastian-Ma-67/envs/issues/2)
+我们需要预先安装 proxychains，并且能够访问外网，proxychains 的安装配置请参考[这里](https://github.com/qixuema/envs/issues/2)
 ### 2.2 安装 docker 及 nvidia-docker2
 `install_docker.sh` 是用来在服务器的物理机上安装 docker 以及 nvidia-docker2，其中在安装的过程中，尤其是安装 nvidia-docker2 的时候，需要翻墙，否则安装过程中会出现某些网站无法访问的问题，导致安装失败；
 ```
