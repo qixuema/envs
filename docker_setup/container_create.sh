@@ -10,6 +10,7 @@ sudo mkdir -p ${hard_disk_path}
 sudo touch ${hard_disk_path}/${name}.txt
 
 sudo docker run -d -it \
+--privileged=true \
 --name ${name}.c \
 --gpus all \
 --hostname ${name}-${ip_address} \
